@@ -84,12 +84,6 @@ class ArticleTest(ModelTestCase):
         ArticleFactory.create(title='first article')
         ArticleFactory.create(title='second article')
 
-    def test_was_modified(self):
-        self.assertFalse(self.obj.was_modified)
-        sleep(1)
-        self.obj.save()
-        self.assertTrue(self.obj.was_modified)
-
 
 class CleanCategoriesTest(TestCase):
     """Test the clean_categories pre_delete signal on Article."""

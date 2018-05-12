@@ -1,11 +1,9 @@
 """Showcase site models."""
 
-from datetime import timedelta
 from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
 from django.utils.timezone import now
-from dry_rest_permissions.generics import authenticated_users
 
 from markdownx.models import MarkdownxField
 
@@ -32,24 +30,7 @@ class Category(models.Model):
 
 
 class Article(models.Model):
-    """Represents a piece of news.
-
-    Fields
-    ------
-    title : str
-        Title of the news.
-    slug : str
-        A brief label identifying the article.
-        It is generated from the title on creation.
-        However, it is not used for the article's API URL.
-    content : str
-        Full content of the news.
-    published : date
-        Date the article was published. Today's date by default.
-    image : Image
-        An image to illustrate the article.
-    pinned : bool
-    """
+    """Represents a piece of news."""
 
     title = models.CharField('titre', max_length=300,
                              help_text="Titre de l'article")
@@ -68,7 +49,7 @@ class Article(models.Model):
     content = MarkdownxField(
         'contenu',
         help_text="Contenu complet de l'article (Markdown est supporté).")
-    published = models.DateTimeField('publié le', auto_now_add=True)
+    published = models.DateTimeField('publié le', default=now)
     modified = models.DateTimeField(
         'modifié le', auto_now=True)
     image = models.ImageField('illustration', blank=True, null=True,
@@ -111,12 +92,6 @@ class Article(models.Model):
     def get_absolute_url(self):
         """Return the article's absolute url."""
         return reverse('api:article-detail', args=[str(self.slug)])
-
-    @property
-    def was_modified(self):
-        """Return whether the article has been modified at least once."""
-        return self.modified - self.published > timedelta(seconds=1)
-    was_modified.fget.short_description = 'Modifié'
 
     # Permissions
 
@@ -265,7 +240,7 @@ class Partner(models.Model):
         )
     )
     start_date = models.DateField(
-        'début du partenariat', default=now, blank=True, null=True,
+        'début du partenariat', blank=True, null=True,
         help_text=(
             "Laisser vide si inconnu. "
             "(Cette information est stockée pour historique uniquement.)"
