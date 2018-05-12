@@ -2,18 +2,15 @@
 
 import os
 
-from celery.schedules import crontab
-
 from aws.conf import *
+from celery.schedules import crontab
 
 from .common import *
 
 DEBUG = os.environ.get('DEBUG', False)
 ALLOWED_HOSTS = [
     'localhost',
-    'oser-backend.herokuapp.com',
-    'oser-backend-staging.herokuapp.com',
-    'oser-cs.fr',
+    'oser-site-vitrine.herokuapp.com',
 ]
 
 # Security
