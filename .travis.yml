@@ -30,8 +30,7 @@ deploy:
   provider: heroku
   app:
     # direct each branch to the corresponding app
-    master: oser-showcase-backend
-    staging: oser-showcase-backend-staging
+    master: oser-site-vitrine
   run:
     - 'python project/manage.py migrate'
   api_key:
