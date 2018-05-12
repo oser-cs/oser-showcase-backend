@@ -12,7 +12,7 @@ Plus d'informations sur leur site : http://shields.io
 
 [![Python](https://img.shields.io/badge/python-3.6-blue.svg)](https://docs.python.org/3/)
 [![Django](https://img.shields.io/badge/django-2.0-blue.svg)](https://www.djangoproject.com)
-[![Build Status](https://travis-ci.org/oser-cs/oser-showcase-backend.svg?branch=master](https://travis-ci.org/oser-cs/oser-backend)
+[![Build Status](https://travis-ci.org/oser-cs/oser-showcase-backend.svg?branch=master)](https://travis-ci.org/oser-cs/oser-backend)
 
 Bienvenue ! Ce dépôt est le lieu de développement du backend du site vitrine de l'association OSER.
 
