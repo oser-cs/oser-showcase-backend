@@ -1,0 +1,30 @@
+# virtualenvs
+env/
+venv/
+virtualenv/
+
+# build
+*.pyc
+__pycache__/
+
+# Logs
+*.log
+
+# IDEA
+.idea
+.vscode
+
+# databases
+*.db
+*.sqlite3
+*.rdb
+
+# private
+# .env
+
+# media and collected static files
+project/media/
+project/static/
+
+# Supervisor
+supervisord.pid
