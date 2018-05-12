@@ -3,9 +3,8 @@
 from rest_framework import serializers
 
 from core.markdown import MarkdownField
-from django_countries.serializer_fields import CountryField
 
-from .models import Address, Document
+from .models import Document
 
 
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,15 +21,3 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
                 'lookup_field': 'slug',
             },
         }
-
-
-class AddressSerializer(serializers.ModelSerializer):
-    """Serializer for addresses."""
-
-    country = CountryField(
-        country_dict=True,  # output country code and name
-    )
-
-    class Meta:  # noqa
-        model = Address
-        fields = ('line1', 'line2', 'post_code', 'city', 'country')

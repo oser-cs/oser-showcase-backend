@@ -1,6 +1,5 @@
 """Core views."""
 
-from django.shortcuts import get_object_or_404
 from rest_framework.mixins import RetrieveModelMixin, ListModelMixin
 from rest_framework.viewsets import GenericViewSet
 from .models import Document
