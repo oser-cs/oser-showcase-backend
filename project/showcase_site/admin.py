@@ -15,7 +15,7 @@ from .models import Action, Article, Category, KeyFigure, Partner, Testimony
 class ArticleAdmin(admin.ModelAdmin):
     """Article admin panel."""
 
-    readonly_fields = ('slug', 'published', 'modified',)
+    readonly_fields = ('slug', 'modified',)
 
     list_display = ('title', 'published', 'modified', 'pinned', 'active',)
     list_filter = ('published', 'pinned', 'categories', 'active',)
