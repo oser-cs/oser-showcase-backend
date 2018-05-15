@@ -113,12 +113,10 @@ CORS_ORIGIN_REGEX_WHITELIST = (
     # Allow local hosts on any port
     r'^(https?://)?localhost(:\d+)?$',
     r'^(https?://)?127\.0\.0\.1(:\d+)?$',
-    # Allow hosts such as:
-    # - https://oser-cs.herokuapp.com
-    # - https://oser-frontend-dev.herokuapp.com
-    # (but also https://unknown.herokuapp.com...)
-    # Essentially allows any frontend hosted on Heroku to send CORS requests.
-    r'^(https?://)?(.+\.)?herokuapp\.com$'
+    # Allow any app hosted on Heroku
+    r'^(https?://)?(.+\.)?herokuapp\.com$',
+    # Allow any app on *oser-cs.fr
+    r'^(https?://)?(.+\.)?oser-cs\.fr$',
 )
 X_FRAME_OPTIONS = 'DENY'  # refuse to serve in an <iframe>
 
