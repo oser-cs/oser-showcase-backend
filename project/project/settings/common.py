@@ -102,7 +102,6 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Django rest framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
         # v Enable session authentication in the browsable API
         'rest_framework.authentication.SessionAuthentication',
     ],
